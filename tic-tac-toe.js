@@ -81,26 +81,56 @@ function isEven(num){
 
 // Exercise 4: Check for winner
 function winner(infoDisplay, boardTiles){
-    let winningCells = [
-        [0,1,2], 
-        [3,4,5],
-        [6,7,8],
-        [0,3,6],
-        [1,4,7],
-        [2,5,8],
-        [0,4,8],
-        [2,4,6]
-    ];
+    
+    // check winner horizontally 
+        if(boardTiles[0]==boardTiles[1] && boardTiles[1]== boardTiles[2] && boardTiles[0] != "") {
+            infoDisplay.classList.add("you-won");
+                infoDisplay.textContent = ('Congratulations! ' + boardTiles[0] + ' is the Winner!');
+                return true;
+        }
 
-    for (let i = 0; i < winningCells.length; i++) {
-        let row = winningCells[i];
+        else if (boardTiles[3]==boardTiles[4] && boardTiles[4] == boardTiles[5]&& boardTiles[3] != "") {
+            infoDisplay.classList.add("you-won");
+                infoDisplay.textContent = ('Congratulations! ' + boardTiles[4] + ' is the Winner!');
+                return true;
+        }
+        else if (boardTiles[6]==boardTiles[7] && boardTiles[7] == boardTiles[8]&& boardTiles[6] != ""){
 
-        if (
-            boardTiles[row[0]] == boardTiles[[row[1]]] && boardTiles[row[1]] == boardTiles[row[2]]
-            ) {
-                infoDisplay.classList.add("you-won");
-                infoDisplay.textContent = ('Congratulations! ' + boardTiles[row[0]] + ' is the Winner!');
-            return true;
+            infoDisplay.classList.add("you-won");
+            infoDisplay.textContent = ('Congratulations! ' + boardTiles[6] + ' is the Winner!');
+            return true;   
+        }
+
+        //check winner vertically
+        else if(boardTiles[0]==boardTiles[3] && boardTiles[3]== boardTiles[6] && boardTiles[0] != "") {
+            infoDisplay.classList.add("you-won");
+                infoDisplay.textContent = ('Congratulations! ' + boardTiles[0] + ' is the Winner!');
+                return true;
+        }
+
+        else if (boardTiles[1]==boardTiles[4] && boardTiles[4] == boardTiles[7]&& boardTiles[1] != "") {
+            infoDisplay.classList.add("you-won");
+                infoDisplay.textContent = ('Congratulations! ' + boardTiles[1]+ ' is the Winner!');
+                return true;
+        }
+        else if (boardTiles[2]==boardTiles[5] && boardTiles[5] == boardTiles[8]&& boardTiles[2] != ""){
+
+            infoDisplay.classList.add("you-won");
+            infoDisplay.textContent = ('Congratulations! ' + boardTiles[2] + ' is the Winner!');
+            return true; 
+        }
+
+        //check winner diagonally
+        else if(boardTiles[2]==boardTiles[4] && boardTiles[4]== boardTiles[6] && boardTiles[2] != "") {
+            infoDisplay.classList.add("you-won");
+                infoDisplay.textContent = ('Congratulations! ' + boardTiles[2] + ' is the Winner!');
+                return true;
+        }
+
+        else if (boardTiles[0]==boardTiles[4] && boardTiles[4] == boardTiles[8]&& boardTiles[0] != "") {
+            infoDisplay.classList.add("you-won");
+                infoDisplay.textContent = ('Congratulations! ' + boardTiles[0] + ' is the Winner!');
+                return true;
         }
 
         else{
@@ -111,8 +141,6 @@ function winner(infoDisplay, boardTiles){
 
 
 
-
-}
 
 
  
