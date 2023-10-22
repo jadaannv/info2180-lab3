@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     //initialise an array to keep track of the current state of the game    
     let boardTiles = ["", "", "", "", "", "", "", "", ""];
 
-    // display the game board 
+    // Exercise 1: display the game board 
     let board = document.getElementById("board").children;
     for (let c = 0; c < board.length; c++){
 
@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         cell.setAttribute("class", "square");
         cell.id = c;
 
-        //add X or O when player clicks
+        // Exercise 2: add X or O when player clicks
         cell.addEventListener("click", function() {
             if(cell.textContent == 0 && gameOver == false){
 
@@ -29,11 +29,22 @@ document.addEventListener('DOMContentLoaded', (event) => {
                 else if (isEven(play)== false) {
                     cell.textContent = "X";
                     cell.classList.add(".square.X");
+                    //cell.querySelector(".square.X");
                     boardTiles[c] = "X";
                     infoDisplay.textContent = "It is now O's turn."
                 }
                 play++;
             }
+        
+        // Exercise 3: hover
+        cell.addEventListener("mouseover", function() {
+            const cellStyle = document.querySelectorAll(".hover");
+            cellStyle.classList.add(".hover");
+        })
+        cell.addEventListener("mouseout", function() {
+            cell.querySelectorAll(".hover.O")
+        })
+
         })
 
     }
