@@ -53,10 +53,17 @@ document.addEventListener('DOMContentLoaded', (event) => {
         });
 
         //Exercise 5: reset game
-        /*let reset = document.querySelector(".btn");
+        let reset = document.querySelector(".btn");
         reset.addEventListener ("click", function() {
-
-        }); */
+            cell.textContent ="";
+            cell.classList.remove("X");
+            cell.classList.remove("O");
+            infoDisplay.textContent = "Move your mouse over a square and click to play an X or an O.";
+            infoDisplay.classList.remove("you-won");
+            play = 1;
+            boardTiles = ["", "", "", "", "", "", "", "", ""];
+            gameOver = false;
+        }); 
 
     }
 
@@ -91,7 +98,8 @@ function winner(infoDisplay, boardTiles){
         if (
             boardTiles[row[0]] == boardTiles[[row[1]]] && boardTiles[row[1]] == boardTiles[row[2]]
             ) {
-            infoDisplay.textContent = ('Congratulations! ' + boardTiles[row[0]] + ' is the Winner!');
+                infoDisplay.classList.add("you-won");
+                infoDisplay.textContent = ('Congratulations! ' + boardTiles[row[0]] + ' is the Winner!');
             return true;
         }
 
